@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include <filesystem>
 using namespace std;
+namespace fs = std::filesystem;
+
 string orgPath, unOrgPath;
 
 void orgFolder()
@@ -8,12 +10,13 @@ void orgFolder()
     cout<<"\n";
     cout<<"Path to your organization folder: ";
     cin>>orgPath;
-    if(filesystem::exists(orgPath)) printf("Found a file on specified path, proceed.\n");
+    if(fs::exists(orgPath)) cout<<"Found a file on specified path, proceed.\n";
     else
     {
         cout<<"Invalid path location, please try again";
         orgFolder();
     }
+
 }
 
 void unOrgFolder()
@@ -21,7 +24,7 @@ void unOrgFolder()
     cout<<"\n";
     cout<<"Path to your unorganized folder: ";
     cin>>unOrgPath;
-    if(filesystem::exists(unOrgPath)) printf("Found a file on specified path, proceed.\n");
+    if(fs::exists(unOrgPath)) cout<<"Found a file on specified path, proceed.\n";
     else
     {
         cout<<"Invalid path location, please try again";
@@ -36,8 +39,8 @@ void start()
 
 void setup()
 {
-    printf("\n\n\n");
-    printf("First select the path where you want Organization Assistant to make his folders. This includes text files, document files, spreadsheet files, image files, audio files, video files, code files, archive files\n");
+    cout<<"\n\n\n";
+    cout<<"First select the path where you want Organization Assistant to make his folders. This includes text files, document files, etc...\n";
     orgFolder();
     unOrgFolder();
 }
@@ -45,13 +48,13 @@ void setup()
 void startup()
 {
     int a;
-    printf("\n\n\n");
-    printf("Welcome to Organization Assistant. This program will move all your files in the target folder to the folders you tell them to. \n");
-    printf("Select one of the options bellow: \n");
-    printf("1. Setup \n2. Organization folder path \n3. Unorganized folder path \n4. Start\n");
+    cout<<"\n\n\n";
+    cout<<"Welcome to Organization Assistant. This program will move all your files in the target folder to the folders you tell them to. \n";
+    cout<<"Select one of the options bellow: \n";
+    cout<<"1. Setup \n2. Organization folder path \n3. Unorganized folder path \n4. Start\n";
 
 
-    scanf("%d", &a);
+    cin>>a;
     if(a == 1) setup();
     else if(a == 2) orgFolder();
     else if(a == 3) unOrgFolder();
