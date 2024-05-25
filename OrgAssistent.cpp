@@ -2,7 +2,7 @@
 #include <filesystem>
 using namespace std;
 namespace fs = std::filesystem;
-
+bool sigma = 0;
 string orgPath, unOrgPath;
 
 void orgFolder()
@@ -64,19 +64,46 @@ void startup()
     cout<<"\n\n\n";
     cout<<"Welcome to Organization Assistant. This program will move all your files in the target folder to the folders you tell them to. \n";
     cout<<"Select one of the options bellow: \n";
-    cout<<"1. Setup \n2. Organization folder path \n3. Unorganized folder path \n4. Start\n";
+    cout<<"0. Exit program \n1. Setup \n2. Organization folder path \n3. Unorganized folder path \n4. Start\n";
 
 
     cin>>a;
+    /*
     if(a == 1) setup();
     else if(a == 2) orgFolder();
     else if(a == 3) unOrgFolder();
     else if(a == 4) start();
+    */
+    switch(a)
+    {
+        case 0:
+            sigma = 1;
+            break;
+        case 1:
+            setup();
+            break;
+        case 2:
+            orgFolder();
+            break;
+        case 3:
+            unOrgFolder();
+            break;
+        case 4:
+            start();
+            break;
+        default:
+            cout<<"Invalid answer, try again.\n";
+            break;
+    }
+
 
 }
 
 int main()
 {
-    startup();
+    while(!sigma)
+    {
+        startup();
+    }
     return 0;
 }
