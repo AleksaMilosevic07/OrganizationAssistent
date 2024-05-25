@@ -2,7 +2,7 @@
 #include <filesystem>
 using namespace std;
 namespace fs = std::filesystem;
-bool sigma = 0;
+bool sigma = 0, orgPathExist = 0, unOrgPathExist = 0;
 string orgPath, unOrgPath;
 
 void orgFolder()
@@ -16,6 +16,7 @@ void orgFolder()
         cout<<"Invalid path location, please try again";
         orgFolder();
     }
+    orgPathExist = 1;
 
 }
 
@@ -30,11 +31,15 @@ void unOrgFolder()
         cout<<"Invalid path location, please try again";
         orgFolder();
     }
+    unOrgPathExist = 1;
 }
 
 void start()
 {
+    for(auto it = fs::directory_iterator(unOrgPath); it != fs::directory_iterator(); it++)
+    {
 
+    }
 }
 
 void setup()
@@ -68,12 +73,6 @@ void startup()
 
 
     cin>>a;
-    /*
-    if(a == 1) setup();
-    else if(a == 2) orgFolder();
-    else if(a == 3) unOrgFolder();
-    else if(a == 4) start();
-    */
     switch(a)
     {
         case 0:
@@ -89,7 +88,11 @@ void startup()
             unOrgFolder();
             break;
         case 4:
-            start();
+            if(orgPathExist and unOrgPathExist)
+            {
+                start();
+            }
+            else cout<<"There is no set path to either Organization folder or the Unorganized folder. Try again.\n";
             break;
         default:
             cout<<"Invalid answer, try again.\n";
