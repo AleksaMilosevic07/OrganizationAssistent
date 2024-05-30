@@ -36,8 +36,21 @@ void unOrgFolder()
 
 void start()
 {
-    for(auto it = fs::directory_iterator(unOrgPath); it != fs::directory_iterator(); it++)
+
+    for(const auto& entry : fs::directory_iterator(unOrgPath))
     {
+       string ext = entry.path().extension().string();
+       if(ext == ".txt" or ext == ".docx" or ext == ".pdf" or ext == ".rtf" or ext == ".csv")
+       {
+            try
+            {
+                fs::rename(entry.path(), orgPath);
+            }
+            catch(const fs::filesystem_error& e)
+            {
+                cout<<"Error while moving files\n";
+            }
+       }
 
     }
 }
