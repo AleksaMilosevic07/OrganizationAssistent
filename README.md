@@ -37,6 +37,7 @@ After you have set both the organization folder path and the unorganized folder 
 
     - Organization folder goes trough all your sub folders in messy folder as well, would allow you to simply select your C drive for example and have all the supported files transfered where you want them to
     - Organization assistant remembers your organization folder path and your unorganized folder path after closing and reopening.
+    - Improving code, reducing repetition
     - More file types and more file categories
 
 # Copyright
