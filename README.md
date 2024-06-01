@@ -1,7 +1,7 @@
 # OrganizationAssistent
 Organization Assistent is a simple and light weight program I made to help you organize your files from one address to the other! It is not perfect and will probably be updated in the future to include more popular file extensions.
 # How does it work?
-Apon launching you will be met with 5 different options in total, those are:
+Apon launching you will be met with 5 different options in total, those are: \n
 0. Exit
 1. Setup
 2. Organization folder path
